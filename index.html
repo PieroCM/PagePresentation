@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0b2b" />
   <title>Piero Calderón — Portafolio</title>
   <meta name="description" content="Portafolio de Piero Calderón: objetivo profesional, tecnologías, proyectos e intereses." />
   <!-- Fuente pixel -->
@@ -12,9 +13,16 @@
 <body>
   <!-- NAV -->
   <header class="nav" role="navigation" aria-label="Secciones">
-    <div class="wrap">
+    <div class="wrap nav-row">
       <a class="logo" href="#objetivo">PIERO<span>DEV</span></a>
-      <nav>
+
+      <!-- botón burger -->
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-controls="menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- menú -->
+      <nav id="menu" class="menu">
         <a href="#objetivo">Objetivo</a>
         <a href="#tecnologias">Tecnologías</a>
         <a href="#proyectos">Proyectos</a>
