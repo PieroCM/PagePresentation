@@ -58,6 +58,9 @@ body::before{
   min-height:70vh; display:grid; place-items:center; text-align:center;
   position:relative; overflow:hidden;
 }
+/* fijo: el contenido por encima de las formas */
+.hero .wrap{ position: relative; z-index: 1; }
+
 .title{
   font-family:'Press Start 2P', cursive;
   font-size: clamp(28px, 6vw, 72px);
@@ -82,7 +85,7 @@ body::before{
 }
 
 /* ================== Decoraciones ================== */
-.shape{ position:absolute; fill:transparent; stroke-width:6; opacity:.6; pointer-events:none }
+.shape{ position:absolute; fill:transparent; stroke-width:6; opacity:.6; pointer-events:none; z-index:0; }
 .shape-1{ left:6%; top:18%; width:90px; height:90px; stroke:var(--accent2) }
 .shape-2{ right:8%; top:30%; width:120px; height:120px; stroke:var(--accent1) }
 
@@ -168,6 +171,15 @@ body::before{
   .section{ padding: 64px 0; }
   .section.alt{ background: linear-gradient(180deg, rgba(255,255,255,.02), transparent); }
 }
+/* Extra phone tuning + no solape */
+@media (max-width: 600px){
+  .shape-1{ left:6%; top:22%; width:56px; height:56px; }
+  .shape-2{ right:-4%; top:26%; width:80px; height:80px; opacity:.45; }
+}
+@media (max-width: 360px){
+  .shape{ display:none; }
+}
+
 @media (max-width: 480px){
   .title{ font-size: clamp(24px, 8vw, 48px); }
   .tagline{ margin-top: 12px; }
@@ -220,17 +232,12 @@ body::before{
   display:flex; flex-wrap:wrap; gap:14px 18px;
   align-items:center; margin-top:8px;
 }
-
 .contact-inline a{
   position:relative; text-decoration:none; font-weight:700;
-  /* Texto con leve degradado (no opaco) */
   background: linear-gradient(90deg, var(--accent2), var(--accent1));
   -webkit-background-clip: text; background-clip: text; color: transparent;
-  /* brillo sutil para que resalte en tu fondo */
   text-shadow: 0 0 10px rgba(0,224,255,.25);
 }
-
-/* subrayado neón animado */
 .contact-inline a::after{
   content:""; position:absolute; left:0; right:0; bottom:-3px; height:2px;
   background: linear-gradient(90deg, var(--accent1), var(--accent2));
@@ -247,58 +254,16 @@ body::before{
   transform: scaleX(1); opacity:1;
 }
 
-/* ===== Intereses / hobbies (más grande y con aire) ===== */
-#intereses .section-title{} /* por si luego quieres una clase, ahora no es necesaria */
-
-#intereses h2{
-  /* más grande que el resto de h2 */
-  font-size: clamp(22px, 3.6vw, 40px);
-  margin-bottom: 14px;
-}
-
-#intereses p{ 
-  font-size: clamp(1rem, 1.2vw, 1.15rem);
-  color: var(--txt); /* un pelín más claro que muted */
-  opacity:.92;
-}
-
-#intereses .list{
-  margin-top: 10px;
-  font-size: clamp(1rem, 1.25vw, 1.2rem);
-  line-height: 1.75;
-}
-#intereses .list li{ 
-  margin: 10px 0; 
-}
-
-/* en pantallas pequeñas, mantenlo legible sin que se desborde */
-@media (max-width: 600px){
-  #intereses h2{ font-size: clamp(20px, 6vw, 32px); }
-  #intereses p{ font-size: 1rem; }
-  #intereses .list{ font-size: 1.05rem; line-height: 1.65; }
-}
-
-/* opcional: un velo muy suave para separar la zona de intereses del resto */
-#intereses{ position:relative; }
-#intereses::before{
-  content:""; position:absolute; left:0; right:0; top:0; height:120px; pointer-events:none;
-  background: linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,0));
-}
-
 /* ===== Intereses / hobbies — upgrade ===== */
 #intereses{
   position: relative;
 }
-
 #intereses h2{
-  /* más grande que el resto de h2 */
   font-size: clamp(28px, 4.6vw, 56px);
   margin: 0 0 12px;
   letter-spacing: 1px;
   text-shadow: 3px 3px 0 #1b0a38, 6px 6px 0 rgba(0,0,0,.18);
 }
-
-/* línea/acento bajo el título */
 #intereses h2::after{
   content:"";
   display:block;
@@ -307,15 +272,12 @@ body::before{
   box-shadow: 0 0 12px rgba(255,0,229,.35), 0 0 12px rgba(0,224,255,.35);
   border-radius: 999px;
 }
-
 #intereses > .wrap > p{
   font-size: clamp(1.05rem, 1.4vw, 1.25rem);
   color: var(--txt);
   opacity: .95;
   margin: 14px 0 16px;
 }
-
-/* tarjeta sutil para la lista */
 #intereses .list{
   list-style: none;
   margin: 0;
@@ -327,35 +289,22 @@ body::before{
   font-size: clamp(1.05rem, 1.7vw, 1.35rem);
   line-height: 1.8;
 }
-
-/* cada ítem con separación clara */
 #intereses .list li{
   display: flex;
   align-items: flex-start;
   gap: 12px;
   margin: 10px 0;
 }
-
-/* el emoji se mantiene pero lo alineamos mejor */
-#intereses .list li::before{
-  content:""; /* sólo para reservar espacio si algún li no tiene emoji */
-  width: 0;
-}
-
-/* resaltar términos importantes */
+#intereses .list li::before{ content:""; width: 0; }
 #intereses .list strong{
   color: var(--txt);
   text-shadow: 0 0 8px rgba(0,224,255,.18);
 }
-
-/* velo muy suave arriba para fundir con el fondo */
 #intereses::before{
   content:"";
   position:absolute; left:0; right:0; top:0; height:120px; pointer-events:none;
   background: linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,0));
 }
-
-/* responsive fino */
 @media (max-width: 700px){
   #intereses h2{ font-size: clamp(24px, 7vw, 40px); }
   #intereses > .wrap > p{ font-size: 1rem; }
@@ -375,7 +324,6 @@ body::before{
   padding:20px; border-radius:20px;
   background: rgba(8,10,40,.65);
   border:1.5px solid transparent;
-  /* borde degradado */
   background-image:
     linear-gradient(rgba(8,10,40,.65), rgba(8,10,40,.65)),
     linear-gradient(120deg, rgba(255,0,229,.45), rgba(0,224,255,.45));
@@ -390,54 +338,11 @@ body::before{
   filter: saturate(1.04);
 }
 
-/* encabezado: título + badges */
+/* encabezado */
 .proj-head{
   display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
 }
-.proj-head h3{ margin:0 0 4px; }
-
-/* badges mini */
-.badges{
-  display:flex; gap:8px; list-style:none; margin:0; padding:0;
-  flex-wrap:wrap;
-}
-.badges li{
-  font-size:.85rem;
-  padding:6px 10px; border-radius:999px;
-  background: rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.16);
-  color: var(--txt);
-}
-
-/* cuerpo de la tarjeta */
-.card.proj p{ color:var(--txt); opacity:.95; }
-.card.proj .meta{ color:var(--muted); margin-top:6px; }
-
-/* pie para fijar el botón abajo si el texto es más largo */
-.proj-foot{ margin-top:auto; }
-
-/* botón neón consistente */
-a.cta.neon{
-  display:inline-block; padding:12px 16px; border-radius:999px;
-  text-decoration:none; font-weight:800; color:#0b0b2b;
-  background: linear-gradient(90deg, var(--accent1), var(--accent2));
-  box-shadow:
-    0 8px 20px rgba(0,224,255,.25),
-    0 0 24px rgba(255,0,229,.18) inset;
-}
-a.cta.neon:hover{ filter:brightness(1.08); }
-
-/* Responsive: dos columnas en tablet, una en móvil */
-@media (max-width: 1100px){
-  .grid{ grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 700px){
-  .grid{ grid-template-columns: 1fr; }
-  .proj-head{ flex-direction:column; align-items:flex-start; gap:6px; }
-}
-
-/* Títulos centrados y con tipografía retro */
-.card.proj h3{
+.proj-head h3{
   text-align:center;
   font-family:'Press Start 2P', cursive;
   letter-spacing: .5px;
@@ -445,11 +350,8 @@ a.cta.neon:hover{ filter:brightness(1.08); }
   margin: 0 0 6px;
 }
 
-/* Meta: usa bullets limpios y resalta palabras clave */
-.card.proj .meta{
-  margin-top: 6px;
-  color: var(--muted);
-}
+/* meta */
+.card.proj .meta{ margin-top: 6px; color: var(--muted); }
 .card.proj .meta li{
   margin: 4px 0;
   list-style: none;
@@ -462,7 +364,14 @@ a.cta.neon:hover{ filter:brightness(1.08); }
   color: rgba(0,224,255,.8);
 }
 
-/* Resaltado: otra “letra” y degradado suave */
+/* subtítulo herramientas */
+.tools{
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+/* resaltado */
 .card.proj strong{
   font-family:'Press Start 2P', cursive;
   letter-spacing:.3px;
@@ -471,7 +380,7 @@ a.cta.neon:hover{ filter:brightness(1.08); }
   text-shadow: 0 0 10px rgba(0,224,255,.25);
 }
 
-/* Badges AL FONDO, antes del botón; centrados y con aire */
+/* badges */
 .card.proj .badges{
   display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
   list-style:none; margin: 10px 0 14px; padding:0;
@@ -484,11 +393,20 @@ a.cta.neon:hover{ filter:brightness(1.08); }
   color: var(--txt);
 }
 
-/* Mantén el botón pegado abajo aunque el texto sea corto/largo */
+/* botón al fondo */
 .card.proj{ display:flex; flex-direction:column; }
 .card.proj .proj-foot{ margin-top:auto; }
 
-/* Responsive: en móvil el título no se coma el ancho */
+/* Responsive: dos columnas en tablet, una en móvil */
+@media (max-width: 1100px){
+  .grid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 700px){
+  .grid{ grid-template-columns: 1fr; }
+  .proj-head{ flex-direction:column; align-items:flex-start; gap:6px; }
+}
+
+/* título de card en móvil */
 @media (max-width: 600px){
   .card.proj h3{ font-size: clamp(18px, 5.8vw, 22px); }
 }
