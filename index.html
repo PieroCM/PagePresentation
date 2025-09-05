@@ -1,8 +1,165 @@
-<!DOCTYPE html>
-<html lang="en">    
-    <title> Hola mundo ? </title>
-    <body>
-        <h1> Hola mundo </h1>   
-    </body>
-    
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Piero Calderón — Portafolio</title>
+  <meta name="description" content="Portafolio de Piero Calderón: objetivo profesional, tecnologías, proyectos e intereses." />
+  <!-- Fuente pixel -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- NAV -->
+  <header class="nav" role="navigation" aria-label="Secciones">
+    <div class="wrap">
+      <a class="logo" href="#objetivo">PIERO<span>DEV</span></a>
+      <nav>
+        <a href="#objetivo">Objetivo</a>
+        <a href="#tecnologias">Tecnologías</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#intereses">Intereses</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Identidad + Objetivo profesional -->
+    <section id="objetivo" class="hero section" aria-labelledby="tit-objetivo">
+      <div class="wrap">
+        <h1 id="tit-objetivo" class="title">Piero DEV</h1>
+        <p class="tagline">Rol objetivo: Desarrollador Web / Analista de Datos</p>
+        <p class="lead">
+          Busco practicar y fortalecer habilidades en desarrollo web (Frontend/Backend) y ciencia de datos,
+          contribuyendo a proyectos reales a corto y mediano plazo.
+        </p>
+        <a class="cta" href="#proyectos">Ver proyectos</a>
+      </div>
+      <!-- decoración -->
+      <svg class="shape shape-1" viewBox="0 0 100 100" aria-hidden="true"><rect x="10" y="10" width="30" height="30"></rect></svg>
+      <svg class="shape shape-2" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="35"></circle></svg>
+    </section>
+
+    <!-- Tecnologías de interés -->
+    <section id="tecnologias" class="section" aria-labelledby="tit-tec">
+      <div class="wrap">
+        <h2 id="tit-tec">Tecnologías de interés</h2>
+        <ul class="chips" role="list">
+          <li>HTML</li><li>CSS</li><li>JavaScript</li>
+          <li>Vue</li><li>.NET</li><li>PostgreSQL</li>
+          <li>Docker</li><li>Python</li><li>SQLServerManagment</li>
+          <li>MySql</li><li>Java</li><li>Julia</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Proyectos destacados -->
+<section id="proyectos" class="section alt" aria-labelledby="tit-pro">
+  <div class="wrap">
+    <h2 id="tit-pro">Proyectos destacados</h2>
+    <p class="projects-intro">Una selección de trabajo reciente y publicaciones.</p>
+
+    <div class="grid">
+
+      <article class="card proj">
+        <header class="proj-head">
+          <h3>IGD Group — Portal web</h3>
+        </header>
+
+        <p>Sitio corporativo para una empresa de consultorías con alcance LATAM, desarrollado en equipo (6). Participé en la maquetación y la integración de contenido.</p>
+        <ul class="meta">
+          <li><strong>Resultado:</strong> lanzamiento público y navegación de servicios/noticias.</li>
+        </ul>
+          <li><strong>Herramientas: </strong>
+        <!-- badges AL FONDO -->
+        <ul class="badges">
+          <li>HTML</li><li>CSS</li><li>JS</li>
+        </ul>
+        </li>
+
+        <div class="proj-foot">
+          <a class="cta neon" href="https://igdgroupsac.com/#/" target="_blank" rel="noopener">Visitar sitio</a>
+        </div>
+      </article>
+
+      <article class="card proj">
+        <header class="proj-head">
+          <h3>XGBoost para CONMEBOL</h3>
+        </header>
+
+        <p>Modelo de aprendizaje automático (XGBoost) para predecir resultados de eliminatorias CONMEBOL. Pipeline con limpieza, ingeniería de variables y validación.</p>
+        <ul class="meta">
+          <li><strong>Precisión:</strong> 7 aciertos en 10 partidos (70%).</li>
+        </ul>
+
+        <!-- badges AL FONDO -->
+         <li><strong>Herramientas: </strong>
+        <ul class="badges">
+          <li>Python</li><li>Pandas</li><li>XGBoost</li>
+        </ul>
+         </li>
+        <div class="proj-foot">
+          <a class="cta neon" href="https://colab.research.google.com/drive/1t_oN3BvuuXz3KRLVhc1dv_SaavKPoVQ6?usp=sharing" target="_blank" rel="noopener">Ver notebook</a>
+        </div>
+      </article>
+
+      <article class="card proj">
+        <header class="proj-head">
+          <h3>Artículo en Springer Nature</h3>
+        </header>
+
+        <p>Capítulo sobre un guante háptico inspirado en <em>Iron Man</em> para apoyar a niños con discapacidad visual en la percepción de profundidad.</p>
+        <ul class="meta">
+          <li><strong>Aporte:</strong> coautoría, diseño del prototipo y pruebas iniciales.</li>
+        </ul>
+        <li><strong>Herramientas: </strong>
+        <!-- badges AL FONDO -->
+        <ul class="badges">
+          <li>Investigación</li><li>Prototipado</li>
+        </ul>
+        </li>
+
+        <div class="proj-foot">
+          <a class="cta neon" href="https://link.springer.com/chapter/10.1007/978-981-97-4780-1_18" target="_blank" rel="noopener">Leer capítulo</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+    <!-- Intereses / hobbies -->
+    <section id="intereses" class="section" aria-labelledby="tit-int">
+  <div class="wrap">
+    <h2 id="tit-int">Intereses / hobbies</h2>
+    <p>En mi tiempo libre disfruto de:</p>
+    <ul class="list">
+      <li>🎮 Videojuegos clásicos: <strong>Pokémon</strong>, <strong>Monster Hunter</strong>, <strong>Left 4 Dead</strong> y <strong>Minecraft</strong>.</li>
+      <li>📚 Aprendizaje continuo: <strong>ciencia de datos</strong>, <strong>lenguajes de programación</strong> y <strong>robótica</strong>.</li>
+      <li>🏀 Deporte: juego <strong>básquet</strong> de forma recreativa.</li>
+    </ul>
+  </div>
+</section>
+
+
+    <!-- Contacto -->
+ <section id="contacto" class="section" aria-labelledby="tit-con">
+  <div class="wrap">
+    <h2 id="tit-con">Contacto</h2>
+    <p class="contact-inline">
+      📧 <a href="mailto:pierojesus_20@hotmail.com">pierojesus_20@hotmail.com</a> ·
+      💼 <a href="https://www.linkedin.com/in/piero-jesus-calder%C3%B3n-mendez-50b73720a/" target="_blank" rel="noopener">LinkedIn</a> ·
+      🐙 <a href="https://github.com/PieroCM" target="_blank" rel="noopener">GitHub</a>
+    </p>
+  </div>
+</section>
+
+
+  <footer class="footer">
+    <div class="wrap">© <span id="year"></span> Piero Calderón</div>
+  </footer>
+
+  <script src = "script.js" ></script>
+</body>
 </html>
